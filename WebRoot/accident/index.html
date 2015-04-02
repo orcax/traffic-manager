@@ -1,0 +1,98 @@
+<#include "/common/_layout.html"/>
+<@layout>
+
+<div class="panel panel-default">
+  <div class="panel-heading">事故数据列表</div>
+  <div class="panel-body scroll">
+    <form class="navbar-form navbar-left" action="accident">
+      <table class="table query-table">
+        <tbody>
+          <tr>
+            <td>
+              <span>${(accidentAttrs.location.cnName)!}：</span>
+              <select name="location" class="form-control"> 
+                <option value="">- 所有 -</option> 
+                <#list accidentAttrs.location.options as i>
+                  <#if conditions.location?? && conditions.location=i>
+                  <option value="${i!}" selected>${i!}</option> 
+                  <#else>
+                  <option value="${i!}">${i!}</option> 
+                  </#if>
+                </#list>
+              </select>
+            </td>
+            <td>
+              <span>${(accidentAttrs.type.cnName)!}：</span>
+              <select name="type" class="form-control"> 
+                <option value="">- 所有 -</option> 
+                <#list accidentAttrs.type.options as i>
+                  <#if conditions.type?? && conditions.type=i>
+                  <option value="${i!}" selected>${i!}</option> 
+                  <#else>
+                  <option value="${i!}">${i!}</option> 
+                  </#if>
+                </#list>
+              </select>
+            </td>
+            <td>
+              <span>${(accidentAttrs.duty.cnName)!}：</span>
+              <select name="duty" class="form-control"> 
+                <option value="">- 所有 -</option> 
+                <#list accidentAttrs.duty.options as i>
+                  <#if conditions.duty?? && conditions.duty=i>
+                  <option value="${i!}" selected>${i!}</option> 
+                  <#else>
+                  <option value="${i!}">${i!}</option> 
+                  </#if>
+                </#list>
+              </select>
+            </td>
+            <td>
+              <button class="btn btn-success btn-large">查询</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div> <!-- div.panel-body -->
+
+  <div class="table-panel scroll">
+    <table class="table table-hover text-left">
+      <thead>
+        <tr>
+          <th>${(accidentAttrs.created.cnName)!}</th>
+          <th>${(accidentAttrs.job_location.cnName)!}</th>
+          <th>${(accidentAttrs.location.cnName)!}</th>
+          <th>${(accidentAttrs.type.cnName)!}</th>
+          <th>${(accidentAttrs.duty.cnName)!}</th>
+          <th>作业区</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <#list accidentData as accident>
+        <tr>
+          <td>${(accident.created)!}</td>
+          <td>${(accident.job_location)!}</td>
+          <td>${(accident.location)!}</td>
+          <td>${(accident.type)!}</td>
+          <td>${(accident.duty)!}</td>
+          <td>
+            <#if accidentJobs.get(accident.id)??>
+            有
+            <#else>
+            无
+            </#if>
+          </td>
+          <td>
+            <a href="accident/view/${(accident.id)!}" class="btn btn-info btn-small">详情</a>
+            <button id="${(accident.id)!}" class="btn btn-danger btn-delaccident btn-small">删除</button>
+          </td>
+        </tr>
+        </#list>
+      </tbody>
+    </table>
+  </div> <!-- div.scroll -->
+</div>
+
+</@layout>

@@ -1,0 +1,43 @@
+<#macro layout>
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app="myapp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="${CONTEXT_PATH}/">
+<title>作业区管理系统</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/jquery-ui.min.css" rel="stylesheet">
+<link href="css/jquery-ui-timepicker-addon.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/lib/html5shiv.min.js"></script>
+<script src="js/lib/respond.min.js"></script>
+<![endif]-->
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/jquery-ui.min.js"></script>
+<script src="js/lib/jquery-ui-timepicker-addon.js"></script>
+<script src="js/${jsname!}.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand">作业区管理系统</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="${jobClass!}"><a href="job">作业区管理</a></li>
+          <li class="${accidentClass!}"><a href="accident">事故管理</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <#nested>
+  </div>
+</body>
+</html>
+</#macro>

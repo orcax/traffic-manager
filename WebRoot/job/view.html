@@ -1,0 +1,191 @@
+<#include "/common/_layout.html"/> 
+<@layout>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">作业区详情</div>
+      <div class="panel-body">
+        <form class="form-horizontal">
+          <h3><span class="label label-default">基本信息</span></h3>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.created.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.created)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.weather.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.weather)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.highway.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.highway)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.road_section.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.road_section)!}" readonly>
+            </div>
+          </div>
+          <h3><span class="label label-default">作业类型及内容</span></h3>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.roadway.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.roadway)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.type.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.type)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.content.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.content)!}" readonly>
+            </div>
+          </div>
+          <h3><span class="label label-default">作业区布置</span></h3>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.warning.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.warning)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.speed_limit.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.speed_limit)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.transition_warning.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.transition_warning)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.buffer_facility.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.buffer_facility)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">${(jobAttrs.section_length.cnName)!}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" value="${(jobData.section_length)!}" readonly>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">事故详情</div>
+      <div class="panel-body">
+        <#if accidentData??>
+        <form class="form-horizontal">
+          <h3><span class="label label-default">基本信息</span></h3>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.created.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.created)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.job_location.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.job_location)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.location.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.location)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.type.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.type)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.vehicle.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.vehicle)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.result.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.result)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.description.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.description)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.duty.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.duty)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.compensation.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.compensation)!}" readonly>
+            </div>
+          </div>
+          <h3><span class="label label-default">危险源分析（造成本次事故可能存在的危险源）</span></h3>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.human_factor.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.human_factor)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.vehicle_factor.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.vehicle_factor)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.road_factor.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.road_factor)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.env_factor.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.env_factor)!}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">${(accidentAttrs.job_factor.cnName)!}</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="${(accidentData.job_factor)!}" readonly>
+            </div>
+          </div>
+        </form>
+        <#else>
+        <span class="label label-warning">无</span>
+        </#if>
+      </div>
+    </div>
+  </div>
+</div>
+
+</@layout>

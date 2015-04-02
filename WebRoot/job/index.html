@@ -1,0 +1,103 @@
+<#include "/common/_layout.html"/>
+<@layout>
+
+<div class="panel panel-default scroll">
+  <div class="panel-heading">作业区数据列表</div>
+  <div class="panel-body scroll">
+    <form class="navbar-form navbar-left" action="job">
+      <table class="table query-table">
+        <tbody>
+          <tr>
+            <td>
+              <span>${(jobAttrs.weather.cnName)!}：</span>
+              <select name="weather" class="form-control"> 
+                <option value="">- 所有 -</option> 
+                <#list jobAttrs.weather.options as i>
+                  <#if conditions.weather?? && conditions.weather=i>
+                  <option value="${i!}" selected>${i!}</option> 
+                  <#else>
+                  <option value="${i!}">${i!}</option> 
+                  </#if>
+                </#list>
+              </select>
+            </td>
+            <td>
+              <span>${(jobAttrs.road_section.cnName)!}：</span>
+              <select name="road_section" class="form-control"> 
+                <option value="">- 所有 -</option> 
+                <#list jobAttrs.road_section.options as i>
+                  <#if conditions.road_section?? && conditions.road_section=i>
+                  <option value="${i!}" selected>${i!}</option> 
+                  <#else>
+                  <option value="${i!}">${i!}</option> 
+                  </#if>
+                </#list>
+              </select>
+            </td>
+            <td>
+              <span>${(jobAttrs.type.cnName)!}：</span>
+              <select name="type" class="form-control"> 
+                <option value="">- 所有 -</option> 
+                <#list jobAttrs.type.options as i>
+                  <#if conditions.type?? && conditions.type=i>
+                  <option value="${i!}" selected>${i!}</option> 
+                  <#else>
+                  <option value="${i!}">${i!}</option> 
+                  </#if>
+                </#list>
+              </select>
+            </td>
+            <td>
+              <button class="btn btn-success btn-large">查询</button>
+              <a class="btn btn-warning btn-large" href="job/add">添加</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div> <!-- div.panel-body -->
+
+  <div class="table-panel scroll">
+    <table class="table table-hover text-left">
+      <thead>
+        <tr>
+          <th>${(jobAttrs.created.cnName)!}</th>
+          <th>${(jobAttrs.weather.cnName)!}</th>
+          <th>${(jobAttrs.highway.cnName)!}</th>
+          <th>${(jobAttrs.road_section.cnName)!}</th>
+          <th>${(jobAttrs.road_way.cnName)!}</th>
+          <th>${(jobAttrs.type.cnName)!}</th>
+          <th>${(jobAttrs.content.cnName)!}</th>
+          <th>事故</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <#list jobData as job>
+        <tr>
+          <td>${(job.created)!}</td>
+          <td>${(job.weather)!}</td>
+          <td>${(job.highway)!}</td>
+          <td>${(job.road_section)!}</td>
+          <td>${(job.road_way)!}</td>
+          <td>${(job.type)!}</td>
+          <td>${(job.content)!}</td>
+          <td>
+            <#if job.accident_id??>
+            有
+            <#else>
+            <a href="accident/add/${(job.id)!}" class="btn btn-warning btn-icon"><span class="glyphicon glyphicon-plus"></span></a>
+            </#if>
+          </td>
+          <td>
+            <a href="job/view/${(job.id)!}" class="btn btn-info btn-small">详情</a>
+            <button id="${(job.id)!}" class="btn btn-danger btn-deljob btn-small">删除</button>
+           </td>
+        </tr>
+        </#list>
+      </tbody>
+    </table>
+  </div> <!-- div.scroll -->
+</div>
+
+</@layout>

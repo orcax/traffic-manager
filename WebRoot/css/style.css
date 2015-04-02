@@ -1,0 +1,63 @@
+body {
+  padding-top: 70px;
+  background-color: #fafafa;
+}
+
+th, td {
+  white-space: nowrap;
+}
+
+.scroll {
+  overflow: scroll;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.form-group label {
+  text-align: left !important;
+}
+
+h3 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.form-horizontal {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.query-table td {
+  border-top: none !important;
+  padding: 0 25px 5px 5px !important;
+}
+
+.query-table span {
+  padding-top: 8px;
+}
+
+.table-panel {
+  padding: 10px;
+}
+
+.btn-large {
+  width: 120px;
+  height: 34px;
+  margin-right: 25px;
+  font-size: 16px;
+}
+
+.btn-small {
+  width: 60px;
+  height: 26px;
+  padding: 2px 6px 2px 6px;
+}
+
+.btn-icon {
+  width: auto;
+  height: 22px;
+  padding: 2px 4px 2px 5px;
+  font-size: 12px;
+}

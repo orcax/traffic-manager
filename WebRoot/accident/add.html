@@ -1,0 +1,135 @@
+<#include "/common/_layout.html"/> <@layout>
+
+<div class="panel panel-default">
+  <div class="panel-heading">添加事故</div>
+  <div class="panel-body">
+    <form id="form-addaccident" class="form-horizontal">
+      <input id="job-id" type="hidden" value="${jobId!}">
+      <h3><span class="label label-default">基本信息</span></h3>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.created.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="created" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.job_location.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="job-location" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.location.cnName)!}</label>
+        <div class="col-sm-5">
+          <select id="location" class="form-control">
+            <#list accidentAttrs.location.options as i>
+            <option>${i!}</option> 
+            </#list>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.type.cnName)!}</label>
+        <div class="col-sm-5">
+          <select id="type" class="form-control">
+            <#list accidentAttrs.type.options as i>
+            <option>${i!}</option> 
+            </#list>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.vehicle.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="vehicle" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.result.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="result" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.description.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="description" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.duty.cnName)!}</label>
+        <div class="col-sm-5">
+          <select id="type" class="form-control">
+            <#list accidentAttrs.duty.options as i>
+            <option>${i!}</option> 
+            </#list>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.compensation.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="compensation" type="text" class="form-control">
+        </div>
+      </div>
+      <h3><span class="label label-default">危险源分析（造成本次事故可能存在的危险源）</span></h3>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.human_factor.cnName)!}</label>
+        <div class="col-sm-6">
+          <#list accidentAttrs.human_factor.options as i>
+          <label class="checkbox-inline">
+            <input name="human-factor" type="checkbox" value="${i!}">${i!}
+          </label>
+          </#list>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.vehicle_factor.cnName)!}</label>
+        <div class="col-sm-6">
+            <#list accidentAttrs.vehicle_factor.options as i>
+            <label class="checkbox-inline">
+              <input name="vehicle-factor" type="checkbox" value="${i!}">${i!}
+            </label>
+            </#list>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.road_factor.cnName)!}</label>
+        <div class="col-sm-6">
+          <#list accidentAttrs.road_factor.options as i>
+          <label class="checkbox-inline">
+            <input name="road-factor" type="checkbox" value="${i!}">${i!}
+          </label>
+          </#list>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.env_factor.cnName)!}</label>
+        <div class="col-sm-6">
+          <#list accidentAttrs.env_factor.options as i>
+          <label class="checkbox-inline">
+            <input name="env-factor" type="checkbox" value="${i!}">${i!}
+          </label>
+          </#list>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(accidentAttrs.job_factor.cnName)!}</label>
+        <div class="col-sm-6">
+          <#list accidentAttrs.job_factor.options as i>
+          <label class="checkbox-inline">
+            <input name="job-factor" type="checkbox" value="${i!}">${i!}
+          </label>
+          </#list>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-5">
+          <button id="btn-addaccident" type="button" class="btn btn-default btn-large">提交</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+</@layout>

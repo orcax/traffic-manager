@@ -1,0 +1,114 @@
+<#include "/common/_layout.html"/> <@layout>
+
+<div class="panel panel-default">
+  <div class="panel-heading">添加作业区</div>
+  <div class="panel-body">
+    <form id="form-addjob" class="form-horizontal">
+      <h3><span class="label label-default">基本信息</span></h3>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.created.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="created" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.weather.cnName)!}</label>
+        <div class="col-sm-5">
+          <select id="weather" class="form-control"> 
+            <#list jobAttrs.weather.options as i>
+            <option value="${i!}">${i!}</option> 
+            </#list>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.highway.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="highway" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.road_section.cnName)!}</label>
+        <div class="col-sm-5">
+          <select id="road-section" class="form-control">
+            <#list jobAttrs.road_section.options as i>
+            <option value="${i!}">${i!}</option> 
+            </#list>
+          </select>
+        </div>
+      </div>
+      <h3><span class="label label-default">作业类型及内容</span></h3>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.roadway.cnName)!}</label>
+        <div class="col-sm-5">
+          <#list jobAttrs.roadway.options as i>
+          <label class="checkbox-inline">
+            <input name="roadway" type="checkbox" value="${i!}">${i!}
+          </label>
+          </#list>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.type.cnName)!}</label>
+        <div class="col-sm-5">
+          <select id="type" class="form-control"> 
+            <#list jobAttrs.type.options as i>
+            <option value="${i!}">${i!}</option> 
+            </#list>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.content.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="content" type="text" class="form-control" value="">
+        </div>
+      </div>
+      <h3><span class="label label-default">作业区布置</span></h3>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.warning.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="warning" type="text" class="form-control" value="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.speed_limit.cnName)!}</label>
+        <div class="col-sm-5">
+          <div class="input-group">
+            <input id="speed-limit" type="text" class="form-control" onkeyup="value=value.replace(/[^\d+]/g,'')">
+            <div class="input-group-addon">km/h</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.transition_warning.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="transition-warning" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.buffer_facility.cnName)!}</label>
+        <div class="col-sm-5">
+          <input id="buffer-facility" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">${(jobAttrs.section_length.cnName)!}</label>
+        <div class="col-sm-5">
+          <div class="input-group">
+            <input id="section-length" type="text" class="form-control" onkeyup="value=value.replace(/[^\d+]/g,'')">
+            <div class="input-group-addon">m</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-5">
+          <button id="btn-addjob" type="button" class="btn btn-default btn-large">提交</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="/js/job.js"></script>
+
+</@layout>
